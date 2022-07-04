@@ -1,4 +1,7 @@
 package by.javarush.island.ivanurodnich.animal;
 
-public class Animal {
+public abstract class Animal {
+    public abstract void eat();
+    public abstract void multiply();
+
 }
