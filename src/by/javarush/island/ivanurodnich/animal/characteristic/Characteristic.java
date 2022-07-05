@@ -7,17 +7,14 @@ import java.util.Map;
 
 public class Characteristic {
 
-    private static final Map<AnimalEnum, CharacteristicDto> animalEnumCharacteristicDtoMap = new HashMap<>();
-
-    static {
-        init();
-    }
+    private final Map<AnimalEnum, CharacteristicDto> animalEnumCharacteristicDtoMap = new HashMap<>();
 
     public Characteristic() {
         init();
     }
 
-    private static void  init() {
+    private void  init() {
+
         animalEnumCharacteristicDtoMap.put(
                 AnimalEnum.WOLF, new CharacteristicDto(50,30,3,8,10));
         animalEnumCharacteristicDtoMap.put(
@@ -48,12 +45,9 @@ public class Characteristic {
                 AnimalEnum.DUCK, new CharacteristicDto(1,500,1,0.15,4));
         animalEnumCharacteristicDtoMap.put(
                 AnimalEnum.CATERPILLAR, new CharacteristicDto(0.01,10000,1,0.0025,1));
-
     }
 
-    public static CharacteristicDto getCharacteristicDto(AnimalEnum animalEnum) {
-        return animalEnumCharacteristicDtoMap.get(animalEnum);
+    public Map<AnimalEnum, CharacteristicDto> getAnimalEnumCharacteristicDtoMap(AnimalEnum value) {
+        return animalEnumCharacteristicDtoMap;
     }
-
-
 }
