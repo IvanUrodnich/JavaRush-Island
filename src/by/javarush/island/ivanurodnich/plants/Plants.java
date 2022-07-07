@@ -3,7 +3,7 @@ package by.javarush.island.ivanurodnich.plants;
 public class Plants {
     private double amount = 0;
 
-    public int getAmount() {
+    public double getAmount() {
         return amount;
     }
 
