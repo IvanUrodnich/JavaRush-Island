@@ -2,6 +2,7 @@ package by.javarush.island.ivanurodnich;
 
 import by.javarush.island.ivanurodnich.animal.chances.FoodChances;
 import by.javarush.island.ivanurodnich.animal.characteristic.Characteristic;
+import by.javarush.island.ivanurodnich.animal.task.LocationTask;
 import by.javarush.island.ivanurodnich.location.Location;
 import by.javarush.island.ivanurodnich.location.LocationPrint;
 
@@ -20,6 +21,11 @@ public class IslandRunner {
         //печатаем остров
         LocationPrint.print(location.getIsland());
 
+        ScheduledExecutorService scheduledExecutorService = Executors.newScheduledThreadPool(1);
+        for (int i = 0; i < STEP_COUNT; i++) {
+            scheduledExecutorService.submit(new LocationTask(location));
+        }
+        System.out.println("TEST");
     }
 }
 
