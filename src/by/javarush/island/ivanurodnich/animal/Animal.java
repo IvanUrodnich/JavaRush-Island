@@ -10,8 +10,6 @@ public abstract class Animal {
     //количество голода
     private int amountOfHunger = 0;
 
-    private boolean isLive = true;
-
     protected CharacteristicDto getCharacteristic() {
         return Characteristic.getCharacteristicDto(getAnimal());
     }
@@ -43,6 +41,6 @@ public abstract class Animal {
     }
 
     public boolean isLive() {
-        return isLive;
+        return true;
     }
 }
