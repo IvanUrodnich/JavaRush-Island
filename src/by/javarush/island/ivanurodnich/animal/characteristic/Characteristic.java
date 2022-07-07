@@ -8,7 +8,7 @@ import java.util.Map;
 public class Characteristic {
 
     private static final Map<AnimalEnum, CharacteristicDto> animalEnumCharacteristicDtoMap = new HashMap<>();
-    private static AnimalEnum animalEnum;
+    //private static AnimalEnum animalEnum;
 
     static {
         init();
