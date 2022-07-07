@@ -1,7 +1,7 @@
 package by.javarush.island.ivanurodnich.plants;
 
 public class Plants {
-    private int amount = 0;
+    private double amount = 0;
 
     public int getAmount() {
         return amount;
@@ -9,5 +9,20 @@ public class Plants {
 
     public void setAmount(int amount) {
         this.amount = amount;
+    }
+
+    // уменьшение количества растений
+    public boolean reduceAmount (double i) {
+        amount = amount - i;
+        if (amount < 0) {
+            amount = 0;
+            return false;
+        }
+        return true;
+    }
+
+    //увеличение количества растений на 5%
+    public void plantGrew() {
+        amount = (amount / 100 * 5);
     }
 }

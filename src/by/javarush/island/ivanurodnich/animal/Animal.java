@@ -31,7 +31,7 @@ public abstract class Animal {
     }
 
     // добавить счётчик голода + 1 так
-    public void addOmeTackHunger() {
+    public void addOneTackHunger() {
         amountOfHunger++;
     }
 
