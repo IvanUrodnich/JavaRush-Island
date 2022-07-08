@@ -9,8 +9,8 @@ import by.javarush.island.ivanurodnich.cell.Cell;
 import by.javarush.island.ivanurodnich.plants.Plants;
 
 public class Location {
-    private static final int WIDTH = 100;
-    private static final int HEIGHT = 20;
+    private static final int WIDTH = 5;
+    private static final int HEIGHT = 5;
 
     private final Cell[][] island = new Cell[HEIGHT][WIDTH];
 

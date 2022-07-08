@@ -12,25 +12,7 @@ public abstract class Herbivorous extends Animal {
 
     @Override
     public void eat(Cell cell) {
-        if (isLive()) {
-            boolean isAteFull = false;
-            if (isNotVegan()) {
-                // TODo (для утки)
-                isAteFull = cell.getPlants().reduceAmount(getCharacteristic().getEnergy());
-            } else {
-                isAteFull = cell.getPlants().reduceAmount(getCharacteristic().getEnergy());
-            }
-            if (isAteFull) {
-                resetHugerCounter();
-            } else {
-                addOneTackHunger();
-            }
-        }
-    }
-
-    @Override
-    public void multiply() {
-
+        
     }
 
     @Override

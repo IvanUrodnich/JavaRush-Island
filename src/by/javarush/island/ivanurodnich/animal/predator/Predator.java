@@ -4,6 +4,7 @@ import by.javarush.island.ivanurodnich.animal.Animal;
 import by.javarush.island.ivanurodnich.animal.AnimalEnum;
 import by.javarush.island.ivanurodnich.animal.AnimalTypeEnum;
 import by.javarush.island.ivanurodnich.animal.characteristic.Characteristic;
+import by.javarush.island.ivanurodnich.animal.directions.DrivingDirectionsEnum;
 import by.javarush.island.ivanurodnich.cell.Cell;
 import by.javarush.island.ivanurodnich.utils.Utils;
 
@@ -12,6 +13,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public abstract class Predator extends Animal {
+
     @Override
     public void eat(Cell cell) {
     boolean isAteFull;
@@ -21,9 +23,11 @@ public abstract class Predator extends Animal {
                 .filter(Animal::isLive)
                 .filter(animal -> animalEnumSet.contains(animal.getAnimal())).toList();
         double energy = getCharacteristic().getEnergy();
+
         for (Animal animal : collect) {
             //тип животного, которого едим
             AnimalEnum animalEnum = animal.getAnimal();
+
             boolean randomBoolean = Utils.getRandomBoolean(getFoodChances().get(animalEnum));
             if (randomBoolean) {
                 //масса животного, которого едим
@@ -32,6 +36,7 @@ public abstract class Predator extends Animal {
                 //помечаем что животное съедено
                 animal.killAnimal();
             }
+
             if (energy <= 0)
                 break;
         }
@@ -48,12 +53,13 @@ public abstract class Predator extends Animal {
     }
 
     @Override
-    public void multiply() {
-
-    }
-
-    @Override
     public AnimalTypeEnum getAnimalType() {
         return AnimalTypeEnum.PREDATOR;
     }
+
+    @Override
+    public DrivingDirectionsEnum choseDirection() {
+        return null;
+    }
+
 }
