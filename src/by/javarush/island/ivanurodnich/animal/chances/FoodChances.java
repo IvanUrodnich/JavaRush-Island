@@ -6,9 +6,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class FoodChances {
-    private final Map<AnimalEnum, Map<AnimalEnum, Integer>> animalEnumMap = new HashMap<>();
+    private static final Map<AnimalEnum, Map<AnimalEnum, Integer>> animalEnumMap = new HashMap<>();
 
-    public Map<AnimalEnum, Map<AnimalEnum, Integer>> getAnimalEnumMap() {
+    public static Map<AnimalEnum, Map<AnimalEnum, Integer>> getAnimalEnumMap() {
         return animalEnumMap;
 
     }

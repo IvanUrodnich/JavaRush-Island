@@ -1,17 +1,24 @@
 package by.javarush.island.ivanurodnich.animal;
 
+import by.javarush.island.ivanurodnich.animal.chances.FoodChances;
 import by.javarush.island.ivanurodnich.animal.characteristic.Characteristic;
 import by.javarush.island.ivanurodnich.animal.characteristic.CharacteristicDto;
 import by.javarush.island.ivanurodnich.animal.directions.DrivingDirectionsEnum;
 import by.javarush.island.ivanurodnich.cell.Cell;
+
+import java.util.Map;
 
 public abstract class Animal {
 
     //количество голода
     private int amountOfHunger = 0;
 
-    protected CharacteristicDto getCharacteristic() {
+    public CharacteristicDto getCharacteristic() {
         return Characteristic.getCharacteristicDto(getAnimal());
+    }
+
+    protected Map<AnimalEnum, Integer> getFoodChances() {
+        return FoodChances.getAnimalEnumMap().get(getAnimal());
     }
 
     public abstract void eat(Cell cell);
