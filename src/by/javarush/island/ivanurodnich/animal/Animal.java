@@ -47,7 +47,23 @@ public abstract class Animal {
         this.amountOfHunger = 0;
     }
 
+    private boolean isLive = true;
+
     public boolean isLive() {
-        return true;
+        return isLive;
+    }
+
+    public void killAnimal() {
+        isLive = false;
+    }
+
+    private boolean isReadyToMove = true;
+
+    public boolean isReadyToMove() {
+        return isReadyToMove;
+    }
+
+    public void setReadyToMove(boolean readyToMove) {
+        isReadyToMove = readyToMove;
     }
 }
