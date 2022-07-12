@@ -27,6 +27,11 @@ public abstract class Animal {
         return isLive && getAmountOfHunger() == 0;
     }
 
+    //скорость передвижения
+    public int movementSpeed() {
+        return getCharacteristic().getMoveSpeed();
+    }
+
     //направление движения
     public abstract DrivingDirectionsEnum choseDirection();
 
