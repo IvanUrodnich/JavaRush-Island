@@ -37,7 +37,7 @@ public class LocationPrint {
             long count = animalEnumListEntry.getValue().stream()
                     .filter(animal -> animal.getAmountOfHunger() == 0)
                     .count();
-            System.out.println(key.getDescription() + "Всего поело - " + count + ", голодных - " + (size - count));
+            System.out.println(key.getDescription() + " Всего поело - " + count + ", голодных - " + (size - count));
         }
         System.out.println("Животных пришло - " + cell.getTotalAnimalsCame());
         System.out.println("Животных ушло - " + cell.getTotalAnimalsGone());

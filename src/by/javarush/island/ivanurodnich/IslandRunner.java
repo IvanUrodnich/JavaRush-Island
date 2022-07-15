@@ -11,21 +11,23 @@ import java.util.concurrent.ScheduledExecutorService;
 
 public class IslandRunner {
 
-    private static final int STEP_COUNT = 2;
+    private static final int STEP_COUNT = 20;
 
     public static void main(String[] args) {
 
-        FoodChances foodChances = new FoodChances();
         //создаём остров
         Location location = new Location();
         //печатаем остров
         LocationPrint.print(location.getIsland());
 
-        ScheduledExecutorService scheduledExecutorService = Executors.newScheduledThreadPool(1);
+        //Запуск ходов на острове
         for (int i = 0; i < STEP_COUNT; i++) {
-            scheduledExecutorService.submit(new LocationTask(location));
+            System.out.printf("Расчёт хода номер = %d НАЧАТ%n", i + 1);
+            new LocationTask(location).run();
+            System.out.printf("Расчёт хода номер = %d ЗАВЕРШЕН%n", i + 1);
         }
-        System.out.println("TEST");
+
+        System.out.println("ВРЕМЯ ПОКИНУТЬ ОСТРОВ ! ! !");
     }
 }
 
