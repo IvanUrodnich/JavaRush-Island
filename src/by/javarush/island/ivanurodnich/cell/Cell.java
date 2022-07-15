@@ -30,8 +30,8 @@ public class Cell {
     }
 
     //увеличить счётчик на одно животное, которое ушло
-    public void addToTotalAnimalsGone() {
-        this.totalAnimalsGone++;
+    public void addToTotalAnimalsGone(int i) {
+        this.totalAnimalsGone = this.totalAnimalsGone +i;
     }
 
     //увеличить счётчик на одно животное, которое пришло

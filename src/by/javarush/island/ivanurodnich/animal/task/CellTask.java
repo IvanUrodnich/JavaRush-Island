@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class CellTask implements Runnable{
+public class CellTask implements Runnable {
     private final Cell cell;
 
     public CellTask(Cell cell) {
@@ -26,16 +26,18 @@ public class CellTask implements Runnable{
         cell.getAnimals().forEach(animal -> animal.eat(cell));
         //животные, которые голодыне уже N ходов умираю
         cell.getAnimals().forEach(animal -> {
-            if (animal.getAmountOfHunger() > animal.getCharacteristic().getCountLife())
+            if (animal.getAmountOfHunger() > animal.getCharacteristic().getCountLife()) {
                 animal.killAnimal();
                 //помечаем сколько животных умерло
-
+                cell.addOneToDead();
+            }
         });
         //поиск животных, которые мертвы
         List<Animal> notLiveAnimalList = cell.getAnimals().stream()
                 .filter(animal -> !animal.isLive()).toList();
-        //удаляем мертвых животныъ
+        //удаляем мертвых животных
         cell.getAnimals().removeAll(notLiveAnimalList);
+
         //размножение
         //Подсчёт количества животных, готовых к размножению
         Map<AnimalEnum, Long> countMultiply = cell.getAnimals().stream()
@@ -53,7 +55,8 @@ public class CellTask implements Runnable{
                 ));
 
         // для каждого вида животных
-        countMultiply.forEach((animalEnum, aLong) -> {
+        countMultiply.forEach((animalEnum, aLong) ->
+        {
             //получаем информацию о животных
             CharacteristicDto characteristicDto = Characteristic.getCharacteristicDto(animalEnum);
             //проходим по каждому второму животному ( 2 животных порождают одного нового)

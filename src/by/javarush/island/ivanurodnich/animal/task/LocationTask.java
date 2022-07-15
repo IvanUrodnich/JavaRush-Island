@@ -55,7 +55,7 @@ public class LocationTask implements Runnable {
                             List<Cell> listMovedAnimal = getListMovedAnimal(island, finalI, finalJ, movementSpeed);
                             //перемешиваем список
                             Collections.shuffle(listMovedAnimal);
-                            //смотрим по клеткам
+                            //смотрим сколько животных в клетке
                             for (Cell cell : listMovedAnimal) {
                                 long countAnimals = cell.getAnimals().stream()
                                         .filter(animal1 -> animal1.getAnimal() == animal.getAnimal())
@@ -63,7 +63,10 @@ public class LocationTask implements Runnable {
 
                                 //если есть место для животного
                                 if (countAnimals < animal.getCharacteristic().getMaxAmount()) {
+                                    //добавляем животное в новую клетку
                                     cell.getAnimals().add(animal);
+                                    //увеличиваем счётчик на 1 кода животное пришло
+                                    cell.addOneToTotalAnimalsCame();
                                     //помечаем животное для исключения в этом списке
                                     removedList.add(animal);
                                     animal.setReadyToMove(false);
@@ -73,6 +76,8 @@ public class LocationTask implements Runnable {
                         });
                 //удаляем животных, которые ушли
                 island[i][j].getAnimals().removeAll(removedList);
+                //помечаем сколько животных ушло
+                island[i][j].addToTotalAnimalsGone(removedList.size());
             }
         }
 
@@ -84,10 +89,10 @@ public class LocationTask implements Runnable {
         }
 
         LocationPrint.print(location.getIsland());
-        System.out.println("Финиш шаг = ");
 
     }
 
+    //получение списка возможных ходов животного
     public static List<Cell> getListMovedAnimal(Cell[][] island, final int i, final int j, int movementSpeed) {
         List<Cell> result = new ArrayList<>();
         int left = Math.max(j - movementSpeed, 0);
