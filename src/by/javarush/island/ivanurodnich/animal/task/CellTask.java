@@ -28,6 +28,8 @@ public class CellTask implements Runnable{
         cell.getAnimals().forEach(animal -> {
             if (animal.getAmountOfHunger() > animal.getCharacteristic().getCountLife())
                 animal.killAnimal();
+                //помечаем сколько животных умерло
+
         });
         //поиск животных, которые мертвы
         List<Animal> notLiveAnimalList = cell.getAnimals().stream()

@@ -4,7 +4,6 @@ import by.javarush.island.ivanurodnich.animal.Animal;
 import by.javarush.island.ivanurodnich.animal.AnimalEnum;
 import by.javarush.island.ivanurodnich.animal.AnimalTypeEnum;
 import by.javarush.island.ivanurodnich.animal.characteristic.Characteristic;
-import by.javarush.island.ivanurodnich.animal.directions.DrivingDirectionsEnum;
 import by.javarush.island.ivanurodnich.cell.Cell;
 import by.javarush.island.ivanurodnich.utils.Utils;
 
@@ -63,8 +62,4 @@ public abstract class Herbivorous extends Animal {
 
     }
 
-    @Override
-    public DrivingDirectionsEnum choseDirection() {
-        return null;
-    }
 }

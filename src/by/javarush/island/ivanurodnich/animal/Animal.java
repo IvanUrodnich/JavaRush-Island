@@ -3,7 +3,6 @@ package by.javarush.island.ivanurodnich.animal;
 import by.javarush.island.ivanurodnich.animal.chances.FoodChances;
 import by.javarush.island.ivanurodnich.animal.characteristic.Characteristic;
 import by.javarush.island.ivanurodnich.animal.characteristic.CharacteristicDto;
-import by.javarush.island.ivanurodnich.animal.directions.DrivingDirectionsEnum;
 import by.javarush.island.ivanurodnich.cell.Cell;
 
 import java.util.Map;
@@ -31,9 +30,6 @@ public abstract class Animal {
     public int movementSpeed() {
         return getCharacteristic().getMoveSpeed();
     }
-
-    //направление движения
-    public abstract DrivingDirectionsEnum choseDirection();
 
     public abstract AnimalTypeEnum getAnimalType();
 

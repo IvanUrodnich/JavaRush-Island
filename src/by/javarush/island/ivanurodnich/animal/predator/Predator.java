@@ -4,7 +4,6 @@ import by.javarush.island.ivanurodnich.animal.Animal;
 import by.javarush.island.ivanurodnich.animal.AnimalEnum;
 import by.javarush.island.ivanurodnich.animal.AnimalTypeEnum;
 import by.javarush.island.ivanurodnich.animal.characteristic.Characteristic;
-import by.javarush.island.ivanurodnich.animal.directions.DrivingDirectionsEnum;
 import by.javarush.island.ivanurodnich.cell.Cell;
 import by.javarush.island.ivanurodnich.utils.Utils;
 
@@ -15,10 +14,15 @@ import java.util.stream.Collectors;
 public abstract class Predator extends Animal {
 
     @Override
+    public AnimalTypeEnum getAnimalType() {
+        return AnimalTypeEnum.PREDATOR;
+    }
+
+    @Override
     public void eat(Cell cell) {
-    boolean isAteFull;
-    //получение списка животных, которых сможем съесть
-    Set<AnimalEnum> animalEnumSet = getFoodChances().keySet();
+        boolean isAteFull;
+        //получение списка животных, которых сможем съесть
+        Set<AnimalEnum> animalEnumSet = getFoodChances().keySet();
         List<Animal> collect = cell.getAnimals().stream()
                 .filter(Animal::isLive)
                 .filter(animal -> animalEnumSet.contains(animal.getAnimal())).toList();
@@ -40,11 +44,11 @@ public abstract class Predator extends Animal {
             if (energy <= 0)
                 break;
         }
-            if (energy > 0) {
-                isAteFull = cell.getPlants().reduceAmount(energy);
-            } else
-                isAteFull = true;
-            //проверяем наелось ли животное - сброли счётчик голода, иначе добавляем ход
+        if (energy > 0) {
+            isAteFull = cell.getPlants().reduceAmount(energy);
+        } else
+            isAteFull = true;
+        //проверяем наелось ли животное - сброли счётчик голода, иначе добавляем ход
         if (isAteFull) {
             resetHugerCounter();
         } else {
@@ -52,14 +56,5 @@ public abstract class Predator extends Animal {
         }
     }
 
-    @Override
-    public AnimalTypeEnum getAnimalType() {
-        return AnimalTypeEnum.PREDATOR;
-    }
-
-    @Override
-    public DrivingDirectionsEnum choseDirection() {
-        return null;
-    }
 
 }
