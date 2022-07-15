@@ -27,11 +27,11 @@ public enum AnimalEnum {
         this.description = description;
     }
 
-    public AnimalTypeEnum getAnimalTypeEnum() {
-        return animalTypeEnum;
-    }
-
     public String getDescription() {
         return description;
+    }
+
+    public AnimalTypeEnum getAnimalTypeEnum() {
+        return animalTypeEnum
     }
 }
