@@ -32,6 +32,6 @@ public enum AnimalEnum {
     }
 
     public AnimalTypeEnum getAnimalTypeEnum() {
-        return animalTypeEnum
+        return animalTypeEnum;
     }
 }
